@@ -4,7 +4,7 @@ from pathlib import Path
 import pytest
 from nonebug import App
 from nonebot.message import handle_event
-from nonebot.adapters.onebot.v11 import Message
+from nonebot.adapters.onebot.v11 import Message, MessageSegment
 
 from tests.utils import create_obv11_bot, mock_obv11_message_event
 
@@ -16,18 +16,43 @@ def strip_html(html: str) -> str:
         return sio.getvalue()
 
 
-async def do_test_img_result(app: App, message: str, expect_html_path: str):
+async def do_test_img_result(
+    app: App, message: str, expect_html_path: str, monkeypatch: pytest.MonkeyPatch
+):
     from nonebot_plugin_mahjong_utils.config import conf
 
     conf.mahjong_utils_send_image = True
 
+    # Verify the template and outgoing image without requiring a browser.
+    from nonebot_plugin_mahjong_utils.mapper import htmlrender
+
+    image = b"test-rendered-image"
+
+    async def fake_html_to_pic(**kwargs):
+        assert kwargs["html"]
+        return image
+
+    monkeypatch.setattr(htmlrender, "html_to_pic", fake_html_to_pic)
+
     async with app.test_api() as ctx:
         from nonebot_plugin_mahjong_utils.mapper.sent_store import last_sent
 
+        last_sent.clear()
         bot = create_obv11_bot(ctx)
         event = mock_obv11_message_event(Message(message))
+        ctx.should_call_api(
+            "send_msg",
+            {
+                "message": MessageSegment.reply(event.message_id)
+                + MessageSegment.image(image),
+                "message_type": "private",
+                "user_id": event.user_id,
+            },
+            result={"message_id": 4321},
+        )
         await handle_event(bot=bot, event=event)
 
+    assert last_sent["img"] == image
     assert last_sent["html"] is not None
     # print(last_sent["html"])
     actual_html = strip_html(last_sent["html"])
@@ -38,27 +63,30 @@ async def do_test_img_result(app: App, message: str, expect_html_path: str):
 
 
 @pytest.mark.asyncio
-async def test_hora_img(app: App):
+async def test_hora_img(app: App, monkeypatch: pytest.MonkeyPatch):
     await do_test_img_result(
         app,
         "11123456789999s",
         str(Path(__file__).parent / "expect_html" / "hora_11123456789999s.html"),
+        monkeypatch,
     )
 
 
 @pytest.mark.asyncio
-async def test_shanten_with_got_img(app: App):
+async def test_shanten_with_got_img(app: App, monkeypatch: pytest.MonkeyPatch):
     await do_test_img_result(
         app,
         "234567s12334p",
         str(Path(__file__).parent / "expect_html" / "shanten_234567s12334p.html"),
+        monkeypatch,
     )
 
 
 @pytest.mark.asyncio
-async def test_shanten_without_got_img(app: App):
+async def test_shanten_without_got_img(app: App, monkeypatch: pytest.MonkeyPatch):
     await do_test_img_result(
         app,
         "234567s1234p",
         str(Path(__file__).parent / "expect_html" / "shanten_234567s1234p.html"),
+        monkeypatch,
     )

@@ -1,7 +1,7 @@
 from io import BytesIO
 
 from nonebot import logger
-from mahjong_utils.models.tile import Tile
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.models.tile import Tile
 from ssttkkl_nonebot_utils.errors.errors import BadRequestError
 from ssttkkl_nonebot_utils.interceptor.handle_error import handle_error
 from ssttkkl_nonebot_utils.interceptor.with_handling_reaction import (

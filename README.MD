@@ -100,6 +100,16 @@ pip install nonebot-plugin-mahjong-utils[detect]
 
 默认值：`True`
 
+## 内置计算库与 Pydantic
+
+本插件内置 `mahjong-utils 0.7.7` 的 Python 封装和 JS 计算资源，位于
+`nonebot_plugin_mahjong_utils/_vendor/mahjong_utils/`，不再依赖外部
+`mahjong-utils` 包。来源、许可证和同步说明见该目录的 `README.md` 与 `LICENSE`。
+
+运行环境要求 NoneBot >= 2.4.2、Pydantic >= 2 且 < 3。插件配置使用 v2
+模型；内置计算库暂时通过 `pydantic.v1` 兼容层保留旧模型行为，兼容层由
+Pydantic v2 提供，无需另行安装 v1。其它插件的版本约束仍需各自满足。
+
 ## 优化计算用时
 
 参考：[https://github.com/ssttkkl/mahjong-utils/blob/main/python-lib/README.md#%E6%8C%87%E5%AE%9A%E7%BB%91%E5%AE%9A%E6%96%B9%E5%BC%8F]

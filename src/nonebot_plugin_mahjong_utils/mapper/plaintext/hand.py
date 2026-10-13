@@ -1,7 +1,7 @@
 from typing import TextIO, Optional, Sequence
 
-from mahjong_utils.models.furo import Furo
-from mahjong_utils.models.tile import Tile, tiles_text
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.models.furo import Furo
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.models.tile import Tile, tiles_text
 
 
 def map_hand(io: TextIO, tiles: Sequence[Tile], furo: Optional[Sequence[Furo]] = None):

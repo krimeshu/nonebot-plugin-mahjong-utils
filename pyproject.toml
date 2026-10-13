@@ -6,8 +6,11 @@ authors = [
     {name = "ssttkkl", email = "huang.wen.long@hotmail.com"},
 ]
 dependencies = [
-    "nonebot2<3.0.0,>=2.0.0",
-    "mahjong-utils<1.0.0,>=0.7.4",
+    "nonebot2<3.0.0,>=2.4.2",
+    "pydantic>=2,<3",
+    "mini-racer>=0.12.4",
+    "stringcase>=1.2.0",
+    "typing-extensions>=4.0.0",
     "nonebot-plugin-htmlrender<1.0.0.0,>=0.2.0.3",
     "nonebot-plugin-send-anything-anywhere>=0.3.0",
     "ssttkkl-nonebot-utils<1.0.0,>=0.1.22",

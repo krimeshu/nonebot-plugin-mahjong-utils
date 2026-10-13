@@ -1,12 +1,12 @@
 from io import StringIO
 from typing import List, Optional
 
-from mahjong_utils.hora import Hora
-from mahjong_utils.models.furo import Furo
-from mahjong_utils.models.tile import Tile
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.hora import Hora
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.models.furo import Furo
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.models.tile import Tile
 from nonebot_plugin_saa import Text, Image, MessageFactory
-from mahjong_utils.point_by_han_hu import ChildPoint, ParentPoint
-from mahjong_utils.shanten import CommonShantenResult, FuroChanceShantenResult
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.point_by_han_hu import ChildPoint, ParentPoint
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.shanten import CommonShantenResult, FuroChanceShantenResult
 
 from ..config import conf
 from .sent_store import last_sent

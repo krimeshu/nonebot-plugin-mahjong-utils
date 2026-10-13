@@ -4,7 +4,7 @@ from nonebot import on_regex, on_command
 from nonebot.params import CommandArg, RegexGroup
 from ssttkkl_nonebot_utils.errors.errors import BadRequestError
 from ssttkkl_nonebot_utils.interceptor.handle_error import handle_error
-from mahjong_utils.point_by_han_hu import (
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.point_by_han_hu import (
     get_child_point_by_han_hu,
     get_parent_point_by_han_hu,
 )

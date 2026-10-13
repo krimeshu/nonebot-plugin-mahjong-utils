@@ -1,6 +1,6 @@
 from typing import TextIO, Optional
 
-from mahjong_utils.point_by_han_hu import ChildPoint, ParentPoint
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.point_by_han_hu import ChildPoint, ParentPoint
 
 
 def get_point_tag(point: int) -> str:

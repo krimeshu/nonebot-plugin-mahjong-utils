@@ -1,7 +1,7 @@
 import pytest
 from nonebug import App
 from nonebot.message import handle_event
-from nonebot.adapters.onebot.v11 import Message
+from nonebot.adapters.onebot.v11 import Message, MessageSegment
 
 from tests.utils import create_obv11_bot, mock_obv11_message_event
 
@@ -16,6 +16,15 @@ async def do_test_text_result(app: App, message: str, expect: str):
 
         bot = create_obv11_bot(ctx)
         event = mock_obv11_message_event(Message(message))
+        ctx.should_call_api(
+            "send_msg",
+            {
+                "message": MessageSegment.reply(event.message_id) + Message(expect),
+                "message_type": "private",
+                "user_id": event.user_id,
+            },
+            result={"message_id": 4321},
+        )
         await handle_event(bot=bot, event=event)
     assert last_sent["text"] == expect
 

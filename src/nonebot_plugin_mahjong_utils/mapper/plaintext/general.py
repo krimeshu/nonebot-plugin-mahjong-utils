@@ -1,7 +1,7 @@
-from mahjong_utils.yaku.extra import *
-from mahjong_utils.yaku.common import *
-from mahjong_utils.yaku.yakuman import *
-from mahjong_utils.models.wind import Wind
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.yaku.extra import *
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.yaku.common import *
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.yaku.yakuman import *
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.models.wind import Wind
 
 num_mapping = {1: "一", 2: "两", 3: "三", 4: "四", 5: "五", 6: "六"}
 

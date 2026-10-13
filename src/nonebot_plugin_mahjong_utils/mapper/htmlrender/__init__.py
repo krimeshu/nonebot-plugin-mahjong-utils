@@ -4,10 +4,10 @@ from collections import defaultdict
 
 import jinja2
 from nonebot import require
-from mahjong_utils.models.furo import Furo
-from mahjong_utils.models.tile import Tile
-from mahjong_utils.hora import Hora, RegularHoraHandPattern
-from mahjong_utils.shanten import CommonShantenResult, FuroChanceShantenResult
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.models.furo import Furo
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.models.tile import Tile
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.hora import Hora, RegularHoraHandPattern
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.shanten import CommonShantenResult, FuroChanceShantenResult
 
 from ...config import conf
 from ..sent_store import last_sent

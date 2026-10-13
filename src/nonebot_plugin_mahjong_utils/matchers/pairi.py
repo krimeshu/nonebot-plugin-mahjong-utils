@@ -1,14 +1,14 @@
 import re
 from typing import Optional
 
-from mahjong_utils.yaku import Yaku
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.yaku import Yaku
 from nonebot import logger, on_regex
-from mahjong_utils.shanten import shanten
-from mahjong_utils.models.furo import Furo
-from mahjong_utils.models.wind import Wind
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.shanten import shanten
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.models.furo import Furo
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.models.wind import Wind
 from nonebot.internal.adapter import Event
-from mahjong_utils.models.tile import Tile, parse_tiles
-from mahjong_utils.hora import build_hora_from_shanten_result
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.models.tile import Tile, parse_tiles
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.hora import build_hora_from_shanten_result
 from ssttkkl_nonebot_utils.errors.errors import BadRequestError
 from ssttkkl_nonebot_utils.interceptor.handle_error import handle_error
 from ssttkkl_nonebot_utils.interceptor.with_handling_reaction import (

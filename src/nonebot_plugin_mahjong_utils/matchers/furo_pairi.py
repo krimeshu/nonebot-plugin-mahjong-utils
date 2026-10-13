@@ -3,8 +3,8 @@ from typing import Sequence
 
 from nonebot import logger, on_regex
 from nonebot.internal.adapter import Event
-from mahjong_utils.shanten import furo_chance_shanten
-from mahjong_utils.models.tile import Tile, parse_tiles
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.shanten import furo_chance_shanten
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.models.tile import Tile, parse_tiles
 from ssttkkl_nonebot_utils.errors.errors import BadRequestError
 from ssttkkl_nonebot_utils.interceptor.handle_error import handle_error
 from ssttkkl_nonebot_utils.interceptor.with_handling_reaction import (

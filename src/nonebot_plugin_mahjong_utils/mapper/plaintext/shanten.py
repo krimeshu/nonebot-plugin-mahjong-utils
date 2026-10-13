@@ -1,8 +1,8 @@
 from collections import defaultdict
 from typing import List, TextIO, Sequence, cast
 
-from mahjong_utils.models.tile import Tile, tiles_text
-from mahjong_utils.shanten import (
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.models.tile import Tile, tiles_text
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.shanten import (
     ShantenWithoutGot,
     CommonShantenResult,
     ShantenWithFuroChance,

@@ -1,8 +1,8 @@
 from typing import List, TextIO
 
-from mahjong_utils.models.furo import Furo
-from mahjong_utils.models.tile import Tile
-from mahjong_utils.hora import Hora, RegularHoraHandPattern
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.models.furo import Furo
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.models.tile import Tile
+from nonebot_plugin_mahjong_utils._vendor.mahjong_utils.hora import Hora, RegularHoraHandPattern
 
 from .hand import map_hand
 from .point_by_han_hu import get_ron_text, get_tsumo_text
